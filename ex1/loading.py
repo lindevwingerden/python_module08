@@ -112,6 +112,14 @@ def main() -> None:
     if missing:
         print_install_help(missing)
         sys.exit(1)
+    print("\nAnalyzing Matrix data...")
+    data = simulate_vampire_sightings()
+    print(f"Processing {len(data)} data points...\n")
+    summary = analyse_vampire_sightings(data)
+    print(summary.to_string())
+    print("\nGenerating visualization...")
+    visualise_vampire_sightings(data, summary)
+    print(f"\nAnalysis complete!\nResults saved to: {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":
