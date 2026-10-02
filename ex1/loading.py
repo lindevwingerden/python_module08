@@ -86,7 +86,7 @@ def analyse_vampire_sightings(data: "pd.DataFrame") -> "pd.DataFrame":
     return summary.sort_values("sightings", ascending=False)
 
 
-def visualise_vampire_sightings(data: "pd.DataFrame", summary: "pd.DataFrame") -> None:
+def visualise_sightings(data: "pd.DataFrame", summary: "pd.DataFrame") -> None:
     matplotlib.use("Agg")
     fig, (left, right) = plt.subplots(1, 2, figsize=(13, 5))
 
@@ -118,7 +118,7 @@ def main() -> None:
     summary = analyse_vampire_sightings(data)
     print(summary.to_string())
     print("\nGenerating visualization...")
-    visualise_vampire_sightings(data, summary)
+    visualise_sightings(data, summary)
     print(f"\nAnalysis complete!\nResults saved to: {OUTPUT_FILE}")
 
 
