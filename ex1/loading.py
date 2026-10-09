@@ -3,10 +3,10 @@ import importlib.util
 import sys
 
 try:
-    import matplotlib
-    import matplotlib.pyplot as plt
-    import numpy as np
-    import pandas as pd
+    import matplotlib  # type: ignore[import-not-found]
+    import matplotlib.pyplot as plt  # type: ignore[import-not-found]
+    import numpy as np  # type: ignore[import-not-found]
+    import pandas as pd  # type: ignore[import-untyped]
 except ImportError:
     pass
 
@@ -96,7 +96,7 @@ def visualise_sightings(data: "pd.DataFrame", summary: "pd.DataFrame") -> None:
     left.tick_params(axis="x", rotation=45)
 
     right.hist(data["hour"], bins=24, color="darkslateblue")
-    right.set_title("Sightings per hour")
+    right.set_title("Vampire sightings per hour")
     right.set_xlabel("Hour of the day")
     right.set_ylabel("Sightings")
 
